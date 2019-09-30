@@ -44,7 +44,7 @@ export default class SearchUI extends Component {
     }
     changeSearch(text){
         this.setState({
-            keyWords:text
+            keyWords:encodeURIComponent(text.trim())
         })
     }
     changePage(page){

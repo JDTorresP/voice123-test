@@ -26,6 +26,7 @@ export default function VoiceActors(props) {
     if(props.data.length>0){
       voice_actors=props.data.map(function (el, i) {
         return <Grow in={true}
+        key={i}
           style={{ transformOrigin: '0 0 0' }}
           {...(true ? { timeout: 1000 } : {})}>
           <Paper elevation={4} className={classes.paper}>
