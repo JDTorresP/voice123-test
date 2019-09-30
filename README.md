@@ -23,9 +23,15 @@ npm start
 - 30/09/2019 - 9:00AM - 11:30AM  The main components and the user interface are planned, the implementation starts taking into account the basic requirements of the problem.
 - 30/09/2019 - 11:30AM - 12:00AM a material style is developed with a friendly design under the concept of voice123.
 - 30/09/2019 - 12:00AM - 1:00PM The necessary paging and search filters are made
+- 30/09/2019 - 1:00AM - 2:00PM Break and Lunch
+- 30/09/2019 - 2:00AM - 4:00PM The necessary paging and search methods to refresh and data management
 
 # Future work
 
+- Improve data search by implementing a cache to avoid overloading the server with unnecessary searches
+- Make a redux integration in order to bind data properly on a scaled app
+
 # Recommendations
 
-# More information
+- Please make sure that you click on the buttons of the pagination and the search
+- Specify better where the examples of audio can be found
