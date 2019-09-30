@@ -25,9 +25,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function SearchBar(props) {
   const [key, setKey] = useState("");
   const classes = useStyles();
+
+ 
 
   return (
     <Paper className={classes.root}>
@@ -36,6 +39,8 @@ export default function SearchBar(props) {
         placeholder="Search keywords for voice over"
         inputProps={{ 'aria-label': 'Search keywords for voice over' }}
         onChange= { (e)=>{setKey(e.target.value)}}
+        onKeyPress={event => {if (event.key === 'Enter') {props.changeSearch(key); props.bindApi();}
+        }}
       />
       <IconButton className={classes.iconButton} aria-label="search"  onClick= { (e)=>{ props.changeSearch(key); props.bindApi()}}>
         <SearchIcon />
