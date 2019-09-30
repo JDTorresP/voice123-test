@@ -24,21 +24,23 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Actor() {
+export default function Actor(props) {
   const classes = useStyles();
-
+  
+  
   return (
     <Card className={classes.card}>  
-        <Avatar alt="Remy Sharp" src="https://v1-media.s3.amazonaws.com/sandbox/pics/users/297757/l_vT5hV.jpg" className={classes.avatar} />
+        <Avatar alt="Remy Sharp" src={props.data.img} className={classes.avatar} />
          <CardContent>
-        <CardActionArea> 
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+        <CardActionArea>
+          <Typography gutterBottom variant="h5" component="h2" onClick={()=>{  
+          var win = window.open("https://voice123.com/"+props.data.username, '_blank');
+          win.focus();}}>
+          {props.data.name}
           </Typography>
         </CardActionArea>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+          {props.data.summary}
           </Typography>
           <CardContent className={classes.audio}>
           <AudioPlayerCmp/>

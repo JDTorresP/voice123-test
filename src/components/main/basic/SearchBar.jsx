@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -25,7 +25,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SearchBar() {
+export default function SearchBar(props) {
+  const [key, setKey] = useState("");
   const classes = useStyles();
 
   return (
@@ -34,11 +35,12 @@ export default function SearchBar() {
         className={classes.input}
         placeholder="Search keywords for voice over"
         inputProps={{ 'aria-label': 'Search keywords for voice over' }}
+        onChange= { (e)=>{setKey(e.target.value)}}
       />
-      <IconButton className={classes.iconButton} aria-label="search">
+      <IconButton className={classes.iconButton} aria-label="search"  onClick= { (e)=>{ props.changeSearch(key); props.bindApi()}}>
         <SearchIcon />
       </IconButton>
-      <Button className={classes.searchButton}>Search</Button>
+      <Button className={classes.searchButton} onClick= { (e)=>{ props.changeSearch(key); props.bindApi()}}>Search</Button>
     </Paper>
   );
 }

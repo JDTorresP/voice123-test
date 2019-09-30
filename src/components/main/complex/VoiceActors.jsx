@@ -19,9 +19,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function VoiceActors() {
+export default function VoiceActors(props) {
   const classes = useStyles();
-
+  let voice_actors=(<div> There is no current actors that match the specified search</div>);
+  if(typeof props.data !== "undefined"){
+    if(props.data.length>0){
+      voice_actors=props.data.map(function (el, i) {
+        return <Actor 
+          key={i}
+          data={el}
+        />
+      }, this);
+    }
+  }
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -29,7 +39,7 @@ export default function VoiceActors() {
           style={{ transformOrigin: '0 0 0' }}
           {...(true ? { timeout: 1000 } : {})}>
           <Paper elevation={4} className={classes.paper}>
-          <Actor/>
+          {voice_actors}
           </Paper>
         </Grow>
       </div>
