@@ -25,23 +25,23 @@ export default function VoiceActors(props) {
   if(typeof props.data !== "undefined"){
     if(props.data.length>0){
       voice_actors=props.data.map(function (el, i) {
-        return <Actor 
-          key={i}
-          data={el}
-        />
+        return <Grow in={true}
+          style={{ transformOrigin: '0 0 0' }}
+          {...(true ? { timeout: 1000 } : {})}>
+          <Paper elevation={4} className={classes.paper}>
+            <Actor 
+            key={i}
+            data={el}
+          />
+          </Paper>
+        </Grow> 
       }, this);
     }
   }
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Grow in={true}
-          style={{ transformOrigin: '0 0 0' }}
-          {...(true ? { timeout: 1000 } : {})}>
-          <Paper elevation={4} className={classes.paper}>
-          {voice_actors}
-          </Paper>
-        </Grow>
+        {voice_actors}
       </div>
     </div>
   );
