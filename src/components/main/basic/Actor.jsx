@@ -10,7 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
-    minWidth: 100
+    minWidth: 100,
   },
   avatar: {
     marginTop: 10,
@@ -21,6 +21,10 @@ const useStyles = makeStyles({
   audio:{    
     marginTop:10,
     marginBottom:10
+  },
+  summary:{
+    maxHeight:200,
+    overflow: 'auto'
   }
 });
 
@@ -39,9 +43,11 @@ export default function Actor(props) {
           {props.data.name}
           </Typography>
         </CardActionArea>
+        <CardContent className={classes.summary}>
           <Typography variant="body2" color="textSecondary" component="p">
           {props.data.summary}
           </Typography>
+          </CardContent>
           <CardContent className={classes.audio}>
           <AudioPlayerCmp/>
           </CardContent>
